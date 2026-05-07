@@ -3,42 +3,47 @@ import java.time.LocalDateTime;
 
 public class Comment {
 
-    private final String usermail;
+    private final Pizza pizza;
+    private final User user;
     private final String description;
-    private final String reference;
+    private final LocalDateTime date;
 
 
-public Comment(String reference, String usermail, String description) {
+
+public Comment(Pizza pizza, User user, String description) {
     //VALIDACIONES Y ASIGNACIONES
-    LocalDateTime now = LocalDateTime.now(); // Current date & time
-
-    if (usermail == null || usermail.isEmpty()) {
-        throw new IllegalArgumentException("mail needs almost 1 character");}
-    else if (!usermail.contains("@")){
-        throw new IllegalArgumentException("mail needs the '@' character");}
+    this.date = LocalDateTime.now(); // Current date & time
+    if (pizza == null) {
+        throw new IllegalArgumentException("Pizza cannot be empty");}
     else {
-            this.usermail = usermail;}
+            this.pizza = pizza;}
+    if (user == null) {
+        throw new IllegalArgumentException("User cannot be empty");}
+    else {
+            this.user = user;}
     if (description == null || description.isEmpty()) {
         throw new IllegalArgumentException("mail needs almost 1 character");}
     else {
             this.description = description;}
-    if (reference == null || reference.isEmpty()) {
-        throw new IllegalArgumentException("mail needs almost 1 character");}
-    else {
-            this.reference = reference;}
-        } 
+}
 
-public String getUsermail() {
-    return usermail;
+
+public User getUser() {
+    return user;
+}
+
+public Pizza getPizza() {
+    return pizza;
 }
 
 public String getDescription() {
     return description;
 }
 
-public String getReference() {
-    return reference;
+public LocalDateTime getDate() {
+    return date;
 }
+
 
 
     }
